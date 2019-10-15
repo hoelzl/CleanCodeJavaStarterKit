@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FizzBuzzTest {
     @Test
-    void givenNoCode_fail() {
+    void noCode_everythingFails() {
         fail();
     }
 }
