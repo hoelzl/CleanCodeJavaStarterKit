@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group 'de.mhoelzl.training'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jUnitVersion = '5.3.1'
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+project.ext.mainClassName = "de.mhoelzl.training.kata02.Main"
+
+task dist(type: Jar) {
+    from files(sourceSets.main.output.classesDirs)
+    from files(sourceSets.main.output.resourcesDir)
+    from {configurations.compile.collect {zipTree(it)}}
+
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+}
+
+dist.dependsOn classes

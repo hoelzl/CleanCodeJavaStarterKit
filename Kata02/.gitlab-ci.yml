@@ -1,0 +1,7 @@
+build:
+  script:
+    - ./gradlew test
+
+dist:
+  script:
+    - ./gradlew dist
