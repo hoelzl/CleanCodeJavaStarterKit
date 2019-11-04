@@ -1,0 +1,12 @@
+image: openjdk:12
+
+build:
+  script:
+    - ./gradlew check
+
+dist:
+  script:
+    - ./gradlew distTar distZip
+  artifacts:
+    paths:
+      - build/distributions
